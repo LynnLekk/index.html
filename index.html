@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Love Vault 🤍💍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f5f1ea;
+            color: #5a3e2b;
+            overflow-x: hidden;
+        }
+
+        /* LOCK SCREEN */
+        #lockScreen {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            background: #fdfaf5;
+        }
+
+        /* MAIN SITE */
+        #mainSite {
+            display: none;
+            padding-bottom: 50px;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 40px 15px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3, h4, h5 {
+            text-align: center;
+            color: #8e6d5a;
+        }
+
+        /* IMAGES */
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .images img {
+            width: 100%;
+            max-width: 180px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .images img:hover {
+            transform: scale(1.05);
+        }
+
+        /* FULLSCREEN IMAGE VIEWER */
+        #fullscreen {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        #fullscreen img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+
+        /* VIDEO */
+        .video-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .video-row video {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            background: #000;
+        }
+
+        /* MUSIC BOX */
+        .music-box {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* GAME STYLES */
+        .heart {
+            position: fixed;
+            font-size: 30px;
+            cursor: pointer;
+            user-select: none;
+            z-index: 1000;
+            animation: floatUp 3s linear forwards;
+        }
+
+        @keyframes floatUp {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(-100px); opacity: 0; }
+        }
+
+        #score-display {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d63384;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* SURPRISE SECTION */
+        #surprise {
+            display: none;
+            margin-top: 50px;
+            padding: 40px;
+            background: #fffafa;
+            border: 2px dashed #ffb6c1;
+            border-radius: 30px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; } to { opacity: 1; }
+        }
+
+        /* MOBILE FIXES */
+        @media (max-width:600px){
+            h2 { font-size: 20px; }
+            .images img { max-width: 45%; height: 180px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="lockScreen">
+    <h1>🔒 Private Love Vault</h1>
+    <p>Only YOU can access this 🤍</p>
+    <h3>⏳ Opening In...</h3>
+    <p id="countdown" style="font-size: 24px; font-weight: bold;"></p>
+</div>
+
+<div id="mainSite">
+
+    <header style="padding: 50px 20px;">
+        <h2>Happy 3rd Anniversary, My Puuie 💌</h2>
+        <p style="text-align: center;">"We didn’t realize we were making memories, we just knew we were happy."</p>
+    </header>
+
+    <section>
+        <h3>🌸 The Start of Everything (2023)</h3>
+        <div class="images">
+            <img src="photo_2026-04-13_22-52-49.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-13_22-52-56.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-13_22-53-01.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-13_22-53-04.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-13_22-53-07.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-13_22-54-54.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-13_22-55-02.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-13_22-55-06.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-13_22-55-08.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-13_22-55-12.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-13_22-55-14.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_01-53-48.jpg" onclick="openImg(this)">
+        </div>
+        <div class="video-row">
+            <video controls><source src="video_2026-04-13_22-54-39.mp4"></video>
+            <video controls><source src="video_2026-04-13_22-54-49.mp4"></video>
+        </div>
+    </section>
+
+    <section>
+        <h3>🌸 2024: Challenges & Growth</h3>
+        <div class="images">
+            <img src="ghg.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_01-53-21.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_01-53-24.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_01-53-28.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_01-53-37.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_01-53-39.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_01-53-42.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_01-53-45.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_01-53-53.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_01-53-51.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_01-54-06.jpg" onclick="openImg(this)">
+        </div>
+        <div class="video-row">
+            <video controls><source src="video_2026-04-21_01-53-12.mp4"></video>
+        </div>
+    </section>
+
+    <section>
+        <h3>🌸 2025: Maturing Together</h3>
+        <div class="images">
+            <img src="photo_2026-04-21_02-19-57.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_02-20-09.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_02-20-11.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_02-20-14.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_02-20-17.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_02-20-20.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_02-20-23.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_02-20-26.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_02-20-29.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_02-20-32.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_02-20-38.jpg" onclick="openImg(this)">
+        </div>
+        <div class="video-row">
+            <video controls><source src="video_2026-04-21_02-20-40.mp4"></video>
+            <video controls><source src="video_2026-04-21_02-20-43.mp4"></video>
+        </div>
+    </section>
+     <section>
+        <h3>🌸 2026:Keep Going Together Luv U More & More</h3>
+        <div class="images">
+            <img src="photo_2026-04-21_03-14-35.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_03-14-41.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_03-15-24.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_03-15-31.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_03-15-35.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_03-15-40.jpg" onclick="openImg(this)">
+            <img src="photo_2026-04-21_03-15-46.jpg" onclick="openImg(this)">
+        </div>
+        <div class="video-row">
+            <video controls><source src="video_2026-04-21_03-15-43.mp4"></video>
+            <video controls><source src="video_2026-04-21_03-15-50.mp4"></video>
+        </div>
+    </section>
+
+    <section>
+    
+    <h2>🎵 Listen When u miss me</h2>
+
+    <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+        
+        <div class="music-box">
+            <span class="song-name">🎶 အာဒံဧဝ - ရိန်းမိုး</span>
+            <audio controls>
+                <source src="hi.mp3" type="audio/mp3">
+            </audio>
+        </div>
+
+        <div class="music-box">
+            <span class="song-name">🎶LIMBO - keshi</span>
+            <audio controls>
+                <source src="keshi - LIMBO (Visualizer).mp3" type="audio/mp3">
+            </audio>
+        </div>
+
+        <div class="music-box">
+            <span class="song-name">🎶 I Like You So Much, You ll Know It - Aviwkila</span>
+            <audio controls>
+                <source src="I Like You So Much, You'll Know It - Ysabelle Cuevas (Lyrics).mp3" type="audio/mp3">
+            </audio>
+        </div>
+
+        <div class="music-box">
+            <span class="song-name">🎶ဖန်သားနန်းတော်-အစိုင်း_Black_Hole</span>
+            <audio controls>
+                <source src="ဖန်သားနန်းတော်_အစိုင်း_Black_Hole_Lyrics_Video_256k.mp3" type="audio/mp3">
+            </audio>
+        </div>
+
+        <div class="music-box">
+            <span class="song-name">🎶Lord Huron - The Night We Met</span>
+            <audio controls>
+                <source src="Lord Huron - The Night We Met (Lyrics).mp3" type="audio/mp3">
+            </audio>
+        </div>
+
+    </div>
+    </section>
+
+    <section id="game-area">
+        <h2>🎮 Mini Love Game</h2>
+        <p>Collect 24 hearts to get a fully surprise ❤️</p>
+        <div id="score-display">Hearts: <span id="score">0</span> / 24</div>
+    </section>
+
+    <section id="surprise">
+        <h2>💌All things i want to tell my pretty puiieee<3</h2>
+        <div class="video-row">
+            <video id="surpriseVideo" controls style="width:100%; max-width:400px; border: 8px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                <source src="WIN_20260421_14_37_36_Pro.mp4" type="video/mp4">
+            </video>
+        </div>
+        <p style="font-size: 22px; margin-top: 20px;">Happy 3rd Anniversary, My Wifey! 🤍💍</p>
+    </section>
+
+</div>
+
+<div id="fullscreen" onclick="closeImg()">
+    <img id="fullImg" src="">
+</div>
+
+<script>
+    // --- CONFIGURATION ---
+    const anniversaryDate = new Date("2026-04-06T12:00:00").getTime();
+    let score = 0;
+    let gameUnlocked = false;
+
+    // --- COUNTDOWN LOGIC ---
+    let timer = setInterval(() => {
+        let now = new Date().getTime();
+        let diff = anniversaryDate - now;
+
+        if (diff <= 0) {
+            clearInterval(timer);
+            unlockSite();
+        } else {
+            let d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            let h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            let s = Math.floor((diff % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML = d + "d " + h + "h " + m + "m " + s + "s";
+        }
+    }, 1000);
+
+    function unlockSite() {
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("mainSite").style.display = "block";
+        // Start the heart game only after unlock
+        setInterval(spawnHeart, 1000);
+    }
+
+    // --- IMAGE MODAL ---
+    function openImg(img) {
+        document.getElementById("fullscreen").style.display = "flex";
+        document.getElementById("fullImg").src = img.src;
+    }
+
+    function closeImg() {
+        document.getElementById("fullscreen").style.display = "none";
+    }
+
+    // --- GAME LOGIC ---
+    function spawnHeart() {
+        if (gameUnlocked) return; // Stop spawning once finished
+
+        const h = document.createElement("div");
+        h.className = "heart";
+        h.innerHTML = "❤️";
+        
+        // Position randomly on screen
+        h.style.left = (Math.random() * 80 + 10) + "vw";
+        h.style.top = (Math.random() * 80 + 10) + "vh";
+
+        h.onclick = function() {
+            score++;
+            document.getElementById("score").innerText = score;
+            h.innerHTML = "✨"; // Effect when clicked
+            setTimeout(() => h.remove(), 200);
+
+            if (score >= 24 && !gameUnlocked) {
+                revealSurprise();
+            }
+        };
+
+        document.body.appendChild(h);
+        // Remove heart if not clicked
+        setTimeout(() => { if(h) h.remove(); }, 3000);
+    }
+
+    function revealSurprise() {
+        gameUnlocked = true;
+        const surpriseSection = document.getElementById("surprise");
+        surpriseSection.style.display = "block";
+        
+        // Auto-scroll to surprise
+        setTimeout(() => {
+            surpriseSection.scrollIntoView({ behavior: "smooth" });
+            document.getElementById("surpriseVideo").play();
+        }, 500);
+    }
+</script>
+
+</body>
+</html>
